@@ -1,0 +1,123 @@
+@import "compass";
+
+
+$radio-bg-color: white !default;
+$radio-checked-bg-color: #0075a2 !default;
+$radio-border: 1px solid #cfcfbe !default;
+$radio-hover-color: #cfcfbe !default;
+$radio-size: 20px !default;
+
+$radio-marker-size: 2px !default;
+$radio-marker-color: #333333 !default;
+$radio-marker-active-color: white !default;
+
+$success-color: green !default;
+$error-color: #cc0000 !default;
+
+.ui-radio {
+	position: relative;
+	z-index: 1;
+	label {
+		position: relative;
+		display: inline-block;
+	}
+	input[type=radio] {
+		visibility: hidden;
+		position: absolute;
+
+		&:checked + .ui-radio-marker {
+			border-color: $radio-checked-bg-color;
+			background: $radio-checked-bg-color;
+			&:before {
+				border-color: $radio-marker-active-color;
+				@include opacity(1);
+				@include opacity(100);
+				@include animation(radio-marker-checked 0.3s ease-out);
+			}
+			&:after {
+				@include border-radius(0px);
+				top:0;
+				left:0;
+				width: $radio-size;
+				height: $radio-size;
+			}
+		}
+	}
+	span {
+		display: inline-block;
+		vertical-align: middle;
+		cursor: pointer;
+	}
+	&:hover {
+		.ui-radio-marker {
+			background: $radio-hover-color;
+			&:before {
+				@include opacity(20);
+			}
+		}
+
+	}
+	.ui-radio-marker {
+		top: 0;
+		left: 0;
+		position: relative;
+		background: $radio-bg-color;
+		width: $radio-size;
+		height: $radio-size;
+		border: $radio-border;
+		@include border-radius(100%);
+		@include transition(all 0.15s ease-in-out);
+		&:after, &:before {
+			content: '';
+			position: absolute;
+			display: block;
+		}
+		&:before {
+			background: $radio-marker-active-color;
+			top:50%;
+			left:50%;
+			margin-top: -$radio-size / 4;
+			margin-left: -$radio-size / 4;
+			height: $radio-size / 2;
+			width: $radio-size / 2;
+			z-index: 1;
+			@include border-radius(100%);
+			@include opacity(0);
+			@include transition(opacity 0.1s ease-in-out);
+		}
+		&:after {
+			width: $radio-size;
+			height: $radio-size;
+			background: $radio-bg-color;
+			top: 0;
+			left: 0;
+			z-index:-1;
+			@include transition(background 0.3s ease-in-out);
+		}
+	}
+	.ui-radio-label {
+		margin-left: 5px;
+	}
+	&.error {
+		.ui-radio-marker {
+			border-color: $error-color;
+		}
+	}
+	&.success {
+		.ui-radio-marker {
+			border-color: $success-color;
+		}
+	}
+}
+
+@include keyframes(radio-marker-checked) {
+	0% {
+		@include transform(scale(1));
+	}
+	50% {
+		@include transform(scale(1.5));
+	}
+	100% {
+		@include transform(scale(1));
+	}
+}
