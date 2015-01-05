@@ -3,8 +3,10 @@
 
 $radio-bg-color: white !default;
 $radio-checked-bg-color: #0075a2 !default;
+$radio-disabled-bg-color: #ddd !default;
 $radio-border: 1px solid #cfcfbe !default;
 $radio-hover-color: #cfcfbe !default;
+
 $radio-size: 20px !default;
 
 $radio-marker-size: 2px !default;
@@ -32,7 +34,7 @@ $error-color: #cc0000 !default;
 				border-color: $radio-marker-active-color;
 				@include opacity(1);
 				@include opacity(100);
-				@include animation(radio-marker-checked 0.3s ease-out);
+				@include transform(scale(1.4));
 			}
 			&:after {
 				@include border-radius(0px);
@@ -47,6 +49,18 @@ $error-color: #cc0000 !default;
 		display: inline-block;
 		vertical-align: middle;
 		cursor: pointer;
+	}
+	&.disabled {
+		.ui-radio-marker {
+			background:$radio-disabled-bg-color !important;
+			&:before {
+				display: none;
+			}
+		}
+		.ui-radio-label {
+			opacity: 0.5;
+		}
+
 	}
 	&:hover {
 		.ui-radio-marker {
@@ -83,7 +97,7 @@ $error-color: #cc0000 !default;
 			z-index: 1;
 			@include border-radius(100%);
 			@include opacity(0);
-			@include transition(opacity 0.1s ease-in-out);
+			@include transition(all 0.1s ease-in-out);
 		}
 		&:after {
 			width: $radio-size;
@@ -107,17 +121,5 @@ $error-color: #cc0000 !default;
 		.ui-radio-marker {
 			border-color: $success-color;
 		}
-	}
-}
-
-@include keyframes(radio-marker-checked) {
-	0% {
-		@include transform(scale(1));
-	}
-	50% {
-		@include transform(scale(1.5));
-	}
-	100% {
-		@include transform(scale(1));
 	}
 }
