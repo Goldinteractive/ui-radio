@@ -1,0 +1,18 @@
+{
+  "name": "ui-radio",
+  "homepage": "https://github.com/Goldinteractive/ui-radio",
+  "authors": [
+    "gold interactive"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "gi-scss-mixins": "~0.2.0"
+  }
+}
