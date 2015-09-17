@@ -1,5 +1,5 @@
 {
-  "name": "ui-radio",
+  "name": "gi-ui-radio",
   "homepage": "https://github.com/Goldinteractive/ui-radio",
   "authors": [
     "gold interactive"
@@ -13,6 +13,6 @@
     "tests"
   ],
   "dependencies": {
-    "gi-scss-mixins": "~0.2.0"
+    "gi-scss-mixins": "~0.2.1"
   }
 }
