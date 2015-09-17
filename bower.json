@@ -13,6 +13,6 @@
     "tests"
   ],
   "dependencies": {
-    "gi-scss-mixins": "~0.2.1"
+    "gi-scss-mixins": "~0.2.0"
   }
 }
