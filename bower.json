@@ -4,6 +4,7 @@
   "authors": [
     "gold interactive"
   ],
+  "main": "style.scss",
   "license": "MIT",
   "ignore": [
     "**/.*",
