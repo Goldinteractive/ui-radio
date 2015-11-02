@@ -14,6 +14,5 @@
     "tests"
   ],
   "dependencies": {
-    "gi-scss-mixins": "~0.2.0"
   }
 }
